@@ -61,7 +61,7 @@ func (r *reviewProjectRepo) List(ctx context.Context, req *pbs.ReviewProjectList
 		Name:     req.Name,
 		ModeCode: req.ModeCode,
 	}
-	query := r.Db.Model(&ReviewProjectData{}).Where(whereData).Where("deleted = 0")
+	query := r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Where(whereData).Where("deleted = 0")
 	if req.ShowStatus != 0 {
 		query.Where("status = ? ", req.Status)
 	}
@@ -80,7 +80,7 @@ func (r *reviewProjectRepo) Detail(ctx context.Context, req *api.IdsInt64Params)
 	if len(req.Ids) == 0 {
 		return nil, nil
 	}
-	err := r.Db.Model(&ReviewProjectData{}).Where("id in ?", req.Ids).Where("deleted = 0").Find(&data).Error
+	err := r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Where("id in ?", req.Ids).Where("deleted = 0").Find(&data).Error
 	if err != nil {
 		return nil, handler.HandleError(err)
 	}
@@ -95,7 +95,7 @@ func (r *reviewProjectRepo) TakeDetail(ctx context.Context, req *api.ReviewProje
 	if err != nil {
 		return nil, handler.HandleError(err)
 	}
-	err = r.Db.Model(&ReviewProjectData{}).Where("deleted = 0").Take(&data, &where).Error
+	err = r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Where("deleted = 0").Take(&data, &where).Error
 	if err != nil {
 		return nil, handler.HandleError(err)
 	}
@@ -114,7 +114,7 @@ func (r *reviewProjectRepo) Add(ctx context.Context, req *api.ReviewProjectSaveD
 	}
 	data.CreatedUser = userName
 	data.UpdatedUser = userName
-	res := r.Db.Model(&ReviewProjectData{}).Create(&data)
+	res := r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Create(&data)
 	return res.RowsAffected, handler.HandleError(res.Error)
 }
 
@@ -129,7 +129,7 @@ func (r *reviewProjectRepo) Update(ctx context.Context, req *api.ReviewProjectSa
 		return count, handler.HandleError(err)
 	}
 	data.UpdatedUser = userName
-	res := r.Db.Model(&ReviewProjectData{}).Where("id = ? and deleted = 0", data.Id).Updates(&data)
+	res := r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Where("id = ? and deleted = 0", data.Id).Updates(&data)
 	return res.RowsAffected, handler.HandleError(res.Error)
 }
 func (r *reviewProjectRepo) Delete(ctx context.Context, req *api.IdParam) (count int64, err error) {
@@ -137,7 +137,7 @@ func (r *reviewProjectRepo) Delete(ctx context.Context, req *api.IdParam) (count
 	if err != nil {
 		return 0, err
 	}
-	res := r.Db.Model(&ReviewProjectData{}).Where("id = ? and deleted = 0", req.Id).Updates(&ReviewProjectData{
+	res := r.Db.WithContext(ctx).Model(&ReviewProjectData{}).Where("id = ? and deleted = 0", req.Id).Updates(&ReviewProjectData{
 		Deleted:     1,
 		UpdatedUser: userName,
 	})

@@ -4,13 +4,14 @@
 package main
 
 import (
-	"google.golang.org/grpc"
 	"mine/mine-grrpc/internal/repo"
 	"mine/mine-grrpc/internal/service"
+
+	"google.golang.org/grpc"
 
 	"github.com/google/wire"
 )
 
 func initServer() (*grpc.Server, error) {
-	panic(wire.Build(repo.ProviderSet, service.ProviderSet, newAppMineImpl, newServer))
+	panic(wire.Build(repo.ProviderSet, service.ProviderSet, newAppImpl, newServer))
 }

@@ -8,11 +8,11 @@ import (
 )
 
 // AppMineImpl implements the last service interface defined in the IDL.
-type AppMineImpl struct {
+type AppImpl struct {
 	reviewService service.ReviewService
 }
 
 // ReviewProjectList implements the AppMineImpl interface.
-func (s *AppMineImpl) ReviewProjectList(ctx context.Context, req *pbs.ReviewProjectListParams) (*pbs.ReviewProjectListResponse, error) {
+func (s *AppImpl) ReviewProjectList(ctx context.Context, req *pbs.ReviewProjectListParams) (*pbs.ReviewProjectListResponse, error) {
 	return s.reviewService.ReviewProjectList(ctx, req)
 }

@@ -3,7 +3,6 @@ module mine/mine-grrpc
 go 1.19
 
 require (
-	github.com/cloudwego/kitex v0.5.2
 	github.com/google/wire v0.5.0
 	github.com/whj1990/app-mine v0.0.0-20230202065251-5db7d1384b41
 	github.com/whj1990/go-core v0.0.0-20230129075933-3330ebde0054
@@ -29,6 +28,7 @@ require (
 	github.com/choleraehyq/pid v0.0.16 // indirect
 	github.com/cloudwego/fastpb v0.0.4 // indirect
 	github.com/cloudwego/frugal v0.1.6 // indirect
+	github.com/cloudwego/kitex v0.5.2 // indirect
 	github.com/cloudwego/netpoll v0.3.2 // indirect
 	github.com/cloudwego/thriftgo v0.2.9 // indirect
 	github.com/confluentinc/confluent-kafka-go v1.9.2 // indirect
@@ -92,6 +92,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/oleiade/lane v1.0.1 // indirect
+	github.com/opentracing-contrib/go-grpc v0.0.0-20210225150812-73cb765af46e // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect

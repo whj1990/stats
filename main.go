@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/whj1990/go-core/launch"
-	"google.golang.org/grpc"
 	"mine/mine-grrpc/internal/service"
 	"mine/mine-grrpc/pbs"
+
+	"github.com/whj1990/go-core/launch"
+	"google.golang.org/grpc"
 )
 
 const (
@@ -22,11 +23,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	go launch.RunGrpcServer(server)
-	launch.InitHttpServer()
+	launch.RunGrpcServer(server)
+	//launch.InitHttpServer()
 }
-func newAppMineImpl(reviewService service.ReviewService) pbs.HandleServerServer {
-	return &AppMineImpl{reviewService}
+func newAppImpl(reviewService service.ReviewService) pbs.HandleServerServer {
+	return &AppImpl{reviewService}
 }
 
 func newServer(handler pbs.HandleServerServer) *grpc.Server {

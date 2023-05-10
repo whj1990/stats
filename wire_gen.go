@@ -24,7 +24,7 @@ func initServer() (*grpc.Server, error) {
 	}
 	reviewProjectRepo := repo.NewReviewProjectRepo(db)
 	reviewService := service.NewReviewService(reviewProjectRepo)
-	handleServerServer := newAppMineImpl(reviewService)
+	handleServerServer := newAppImpl(reviewService)
 	server := newServer(handleServerServer)
 	return server, nil
 }

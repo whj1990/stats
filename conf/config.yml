@@ -1,5 +1,5 @@
-appid: app-mine
+appid: data-statistics-server
 cluster: dev
 url: "http://localhost:8080"
 namespace: application
-secret: 9173ca4259234aad8aec6b9fe2267842
+secret: d25eb8f74ff943ada97e7acde26c93ae
