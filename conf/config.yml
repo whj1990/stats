@@ -1,5 +1,17 @@
-appid: data-statistics-server
-cluster: dev
-url: "http://localhost:8080"
-namespace: application
-secret: d25eb8f74ff943ada97e7acde26c93ae
+apollo:
+  appid: data-statistics-server
+  cluster: dev
+  url: "http://localhost:8080"
+  namespace: application
+  secret: d25eb8f74ff943ada97e7acde26c93ae
+naCos:
+  address: "mse-9adde470-p.nacos-ans.mse.aliyuncs.com"
+  port: 8848
+  context-path: "/nacos"
+  log-level: debug
+  namespace: 26f96dff-111f-485b-9b89-9131dd48c4e4
+  username: nacos
+  password: c$^#v3QixpK38DoH
+  group: group-mine-dev
+  cluster-name: cluster-mine-dev
+  data-id: mine-grpc
