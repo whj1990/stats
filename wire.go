@@ -4,8 +4,8 @@
 package main
 
 import (
-	"mine/mine-grrpc/internal/repo"
-	"mine/mine-grrpc/internal/service"
+	"github.com/whj1990/mine-grrpc/internal/repo"
+	"github.com/whj1990/mine-grrpc/internal/service"
 
 	"google.golang.org/grpc"
 

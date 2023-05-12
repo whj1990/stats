@@ -3,8 +3,9 @@ package repo
 import (
 	"context"
 	"encoding/json"
-	"mine/mine-grrpc/pbs"
 	"time"
+
+	"github.com/whj1990/mine-grrpc/pbs"
 
 	"github.com/whj1990/app-mine/kitex_gen/api"
 	"github.com/whj1990/go-core/handler"

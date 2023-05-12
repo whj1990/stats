@@ -1,8 +1,8 @@
 package main
 
 import (
-	"mine/mine-grrpc/internal/service"
-	"mine/mine-grrpc/pbs"
+	"github.com/whj1990/mine-grrpc/internal/service"
+	"github.com/whj1990/mine-grrpc/pbs"
 
 	"github.com/whj1990/go-core/launch"
 	"google.golang.org/grpc"

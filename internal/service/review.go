@@ -2,9 +2,10 @@ package service
 
 import (
 	"context"
-	"mine/mine-grrpc/internal/repo"
-	"mine/mine-grrpc/internal/service/stru"
-	"mine/mine-grrpc/pbs"
+
+	"github.com/whj1990/mine-grrpc/internal/repo"
+	"github.com/whj1990/mine-grrpc/internal/service/stru"
+	"github.com/whj1990/mine-grrpc/pbs"
 )
 
 type ReviewService interface {

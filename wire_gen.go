@@ -10,8 +10,8 @@ import (
 	"github.com/whj1990/go-core/store"
 	"github.com/whj1990/go-core/trace"
 	"google.golang.org/grpc"
-	"mine/mine-grrpc/internal/repo"
-	"mine/mine-grrpc/internal/service"
+	"github.com/whj1990/mine-grrpc/internal/repo"
+	"github.com/whj1990/mine-grrpc/internal/service"
 )
 
 // Injectors from wire.go:

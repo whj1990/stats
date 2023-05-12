@@ -1,4 +1,4 @@
-module mine/mine-grrpc
+module github.com/whj1990/mine-grrpc
 
 go 1.19
 

@@ -1,8 +1,8 @@
 package stru
 
 import (
-	"mine/mine-grrpc/internal/repo"
-	"mine/mine-grrpc/pbs"
+	"github.com/whj1990/mine-grrpc/internal/repo"
+	"github.com/whj1990/mine-grrpc/pbs"
 )
 
 func Convert2ReviewProjectData(data *repo.ReviewProjectData) *pbs.ReviewProjectData {

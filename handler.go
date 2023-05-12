@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"mine/mine-grrpc/pbs"
 
-	"mine/mine-grrpc/internal/service"
+	"github.com/whj1990/mine-grrpc/pbs"
+
+	"github.com/whj1990/mine-grrpc/internal/service"
 )
 
 // AppMineImpl implements the last service interface defined in the IDL.
