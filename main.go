@@ -1,10 +1,9 @@
 package main
 
 import (
+	"github.com/whj1990/go-core/launch"
 	"github.com/whj1990/mine-grrpc/internal/service"
 	"github.com/whj1990/mine-grrpc/pbs"
-
-	"github.com/whj1990/go-core/launch"
 	"google.golang.org/grpc"
 )
 
@@ -16,7 +15,7 @@ const (
 )
 
 func main() {
-	logger, closer := launch.InitPremise()
+	logger, closer := launch.InitPremise(true)
 	defer logger.Sync()
 	defer closer.Close()
 	server, err := initServer()
@@ -31,6 +30,7 @@ func newAppImpl(reviewService service.ReviewService) pbs.HandleServerServer {
 }
 
 func newServer(handler pbs.HandleServerServer) *grpc.Server {
+
 	server := grpc.NewServer(launch.GrpcServerOptions()...)
 	pbs.RegisterHandleServerServer(server, handler)
 	return server
