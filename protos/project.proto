@@ -5,6 +5,7 @@ option go_package = "/pbs";// option go_package = "path;name"; path 表示生成
 // 定义我们的服务（可定义多个服务,每个服务可定义多个接口）
 service HandleServer{
     rpc ReviewProjectList (ReviewProjectListParams) returns (ReviewProjectListResponse){};
+    rpc StreamClientServer (stream ParamId) returns (ParamResp){};
 
     // 服务端流式rpc，在响应数据前添加stream
     //rpc ListValue(SimpleRequest)returns(stream StreamResponse){};
@@ -45,3 +46,11 @@ message ReviewProjectData{
     string   updated_date     = 10;
 }
 
+message ParamId {
+    int32 num = 1;
+}
+
+message ParamResp {
+    int32 num = 1;
+    string date = 2;
+}

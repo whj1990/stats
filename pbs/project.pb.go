@@ -315,6 +315,108 @@ func (x *ReviewProjectData) GetUpdatedDate() string {
 	return ""
 }
 
+type ParamId struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Num int32 `protobuf:"varint,1,opt,name=num,proto3" json:"num,omitempty"`
+}
+
+func (x *ParamId) Reset() {
+	*x = ParamId{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_project_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ParamId) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParamId) ProtoMessage() {}
+
+func (x *ParamId) ProtoReflect() protoreflect.Message {
+	mi := &file_project_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParamId.ProtoReflect.Descriptor instead.
+func (*ParamId) Descriptor() ([]byte, []int) {
+	return file_project_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *ParamId) GetNum() int32 {
+	if x != nil {
+		return x.Num
+	}
+	return 0
+}
+
+type ParamResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Num  int32  `protobuf:"varint,1,opt,name=num,proto3" json:"num,omitempty"`
+	Date string `protobuf:"bytes,2,opt,name=date,proto3" json:"date,omitempty"`
+}
+
+func (x *ParamResp) Reset() {
+	*x = ParamResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_project_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ParamResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ParamResp) ProtoMessage() {}
+
+func (x *ParamResp) ProtoReflect() protoreflect.Message {
+	mi := &file_project_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ParamResp.ProtoReflect.Descriptor instead.
+func (*ParamResp) Descriptor() ([]byte, []int) {
+	return file_project_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ParamResp) GetNum() int32 {
+	if x != nil {
+		return x.Num
+	}
+	return 0
+}
+
+func (x *ParamResp) GetDate() string {
+	if x != nil {
+		return x.Date
+	}
+	return ""
+}
+
 var File_project_proto protoreflect.FileDescriptor
 
 var file_project_proto_rawDesc = []byte{
@@ -361,14 +463,23 @@ var file_project_proto_rawDesc = []byte{
 	0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x44, 0x61,
 	0x74, 0x65, 0x12, 0x21, 0x0a, 0x0c, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x64, 0x61,
 	0x74, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x64, 0x44, 0x61, 0x74, 0x65, 0x32, 0x67, 0x0a, 0x0c, 0x48, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x53,
-	0x65, 0x72, 0x76, 0x65, 0x72, 0x12, 0x57, 0x0a, 0x11, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77, 0x50,
-	0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1e, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x2e, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74,
-	0x4c, 0x69, 0x73, 0x74, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x20, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x2e, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74,
-	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x06,
-	0x5a, 0x04, 0x2f, 0x70, 0x62, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x64, 0x44, 0x61, 0x74, 0x65, 0x22, 0x1b, 0x0a, 0x07, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x49, 0x64,
+	0x12, 0x10, 0x0a, 0x03, 0x6e, 0x75, 0x6d, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x6e,
+	0x75, 0x6d, 0x22, 0x31, 0x0a, 0x09, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x12,
+	0x10, 0x0a, 0x03, 0x6e, 0x75, 0x6d, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x6e, 0x75,
+	0x6d, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x61, 0x74, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x64, 0x61, 0x74, 0x65, 0x32, 0xa3, 0x01, 0x0a, 0x0c, 0x48, 0x61, 0x6e, 0x64, 0x6c, 0x65,
+	0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x12, 0x57, 0x0a, 0x11, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77,
+	0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1e, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63,
+	0x74, 0x4c, 0x69, 0x73, 0x74, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x20, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2e, 0x52, 0x65, 0x76, 0x69, 0x65, 0x77, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63,
+	0x74, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x3a, 0x0a, 0x12, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x43, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x53,
+	0x65, 0x72, 0x76, 0x65, 0x72, 0x12, 0x0e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x61,
+	0x72, 0x61, 0x6d, 0x49, 0x64, 0x1a, 0x10, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x50, 0x61,
+	0x72, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x22, 0x00, 0x28, 0x01, 0x42, 0x06, 0x5a, 0x04, 0x2f,
+	0x70, 0x62, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -383,18 +494,22 @@ func file_project_proto_rawDescGZIP() []byte {
 	return file_project_proto_rawDescData
 }
 
-var file_project_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_project_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_project_proto_goTypes = []interface{}{
 	(*ReviewProjectListParams)(nil),   // 0: proto.ReviewProjectListParams
 	(*ReviewProjectListResponse)(nil), // 1: proto.ReviewProjectListResponse
 	(*ReviewProjectData)(nil),         // 2: proto.ReviewProjectData
+	(*ParamId)(nil),                   // 3: proto.ParamId
+	(*ParamResp)(nil),                 // 4: proto.ParamResp
 }
 var file_project_proto_depIdxs = []int32{
 	2, // 0: proto.ReviewProjectListResponse.data:type_name -> proto.ReviewProjectData
 	0, // 1: proto.HandleServer.ReviewProjectList:input_type -> proto.ReviewProjectListParams
-	1, // 2: proto.HandleServer.ReviewProjectList:output_type -> proto.ReviewProjectListResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
+	3, // 2: proto.HandleServer.StreamClientServer:input_type -> proto.ParamId
+	1, // 3: proto.HandleServer.ReviewProjectList:output_type -> proto.ReviewProjectListResponse
+	4, // 4: proto.HandleServer.StreamClientServer:output_type -> proto.ParamResp
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -442,6 +557,30 @@ func file_project_proto_init() {
 				return nil
 			}
 		}
+		file_project_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ParamId); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_project_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ParamResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -449,7 +588,7 @@ func file_project_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_project_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -476,6 +615,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type HandleServerClient interface {
 	ReviewProjectList(ctx context.Context, in *ReviewProjectListParams, opts ...grpc.CallOption) (*ReviewProjectListResponse, error)
+	StreamClientServer(ctx context.Context, opts ...grpc.CallOption) (HandleServer_StreamClientServerClient, error)
 }
 
 type handleServerClient struct {
@@ -495,9 +635,44 @@ func (c *handleServerClient) ReviewProjectList(ctx context.Context, in *ReviewPr
 	return out, nil
 }
 
+func (c *handleServerClient) StreamClientServer(ctx context.Context, opts ...grpc.CallOption) (HandleServer_StreamClientServerClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_HandleServer_serviceDesc.Streams[0], "/proto.HandleServer/StreamClientServer", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &handleServerStreamClientServerClient{stream}
+	return x, nil
+}
+
+type HandleServer_StreamClientServerClient interface {
+	Send(*ParamId) error
+	CloseAndRecv() (*ParamResp, error)
+	grpc.ClientStream
+}
+
+type handleServerStreamClientServerClient struct {
+	grpc.ClientStream
+}
+
+func (x *handleServerStreamClientServerClient) Send(m *ParamId) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *handleServerStreamClientServerClient) CloseAndRecv() (*ParamResp, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(ParamResp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // HandleServerServer is the server API for HandleServer service.
 type HandleServerServer interface {
 	ReviewProjectList(context.Context, *ReviewProjectListParams) (*ReviewProjectListResponse, error)
+	StreamClientServer(HandleServer_StreamClientServerServer) error
 }
 
 // UnimplementedHandleServerServer can be embedded to have forward compatible implementations.
@@ -506,6 +681,9 @@ type UnimplementedHandleServerServer struct {
 
 func (*UnimplementedHandleServerServer) ReviewProjectList(context.Context, *ReviewProjectListParams) (*ReviewProjectListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReviewProjectList not implemented")
+}
+func (*UnimplementedHandleServerServer) StreamClientServer(HandleServer_StreamClientServerServer) error {
+	return status.Errorf(codes.Unimplemented, "method StreamClientServer not implemented")
 }
 
 func RegisterHandleServerServer(s *grpc.Server, srv HandleServerServer) {
@@ -530,6 +708,32 @@ func _HandleServer_ReviewProjectList_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _HandleServer_StreamClientServer_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(HandleServerServer).StreamClientServer(&handleServerStreamClientServerServer{stream})
+}
+
+type HandleServer_StreamClientServerServer interface {
+	SendAndClose(*ParamResp) error
+	Recv() (*ParamId, error)
+	grpc.ServerStream
+}
+
+type handleServerStreamClientServerServer struct {
+	grpc.ServerStream
+}
+
+func (x *handleServerStreamClientServerServer) SendAndClose(m *ParamResp) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *handleServerStreamClientServerServer) Recv() (*ParamId, error) {
+	m := new(ParamId)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _HandleServer_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.HandleServer",
 	HandlerType: (*HandleServerServer)(nil),
@@ -539,6 +743,12 @@ var _HandleServer_serviceDesc = grpc.ServiceDesc{
 			Handler:    _HandleServer_ReviewProjectList_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "StreamClientServer",
+			Handler:       _HandleServer_StreamClientServer_Handler,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "project.proto",
 }

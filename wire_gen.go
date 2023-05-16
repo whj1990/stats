@@ -9,9 +9,9 @@ package main
 import (
 	"github.com/whj1990/go-core/store"
 	"github.com/whj1990/go-core/trace"
-	"google.golang.org/grpc"
 	"github.com/whj1990/mine-grrpc/internal/repo"
 	"github.com/whj1990/mine-grrpc/internal/service"
+	"google.golang.org/grpc"
 )
 
 // Injectors from wire.go:
