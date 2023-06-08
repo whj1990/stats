@@ -78,15 +78,14 @@ func (x *handleServerStreamClientServerClient) CloseAndRecv() (*ParamResp, error
 }
 
 // HandleServerServer is the server API for HandleServer service.
-// All implementations must embed UnimplementedHandleServerServer
+// All implementations should embed UnimplementedHandleServerServer
 // for forward compatibility
 type HandleServerServer interface {
 	ReviewProjectList(context.Context, *ReviewProjectListParams) (*ReviewProjectListResponse, error)
 	StreamClientServer(HandleServer_StreamClientServerServer) error
-	mustEmbedUnimplementedHandleServerServer()
 }
 
-// UnimplementedHandleServerServer must be embedded to have forward compatible implementations.
+// UnimplementedHandleServerServer should be embedded to have forward compatible implementations.
 type UnimplementedHandleServerServer struct {
 }
 
@@ -96,7 +95,6 @@ func (UnimplementedHandleServerServer) ReviewProjectList(context.Context, *Revie
 func (UnimplementedHandleServerServer) StreamClientServer(HandleServer_StreamClientServerServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamClientServer not implemented")
 }
-func (UnimplementedHandleServerServer) mustEmbedUnimplementedHandleServerServer() {}
 
 // UnsafeHandleServerServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to HandleServerServer will

@@ -7,7 +7,7 @@ init:
 .PHONY: protoc
 protoc:
 	#protoc -I=./proto --go_out=. ./*.proto
-	protoc -I=./protos --go_out=.  --go-grpc_out=. ./protos/*.proto
+	protoc -I=./protos --go_out=.  --go-grpc_out=. --go-grpc_opt=require_unimplemented_servers=false ./protos/*.proto
 
 .PHONY: wire
 wire:
