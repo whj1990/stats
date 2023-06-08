@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/google/wire v0.5.0
-	github.com/whj1990/go-core v0.0.0-20230129075933-3330ebde0054
+	github.com/whj1990/go-core nacos-1.0.1
 	google.golang.org/grpc v1.55.0
 	google.golang.org/protobuf v1.30.0 // indirect
 	gorm.io/gorm v1.23.4
