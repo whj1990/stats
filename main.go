@@ -25,8 +25,8 @@ func main() {
 	launch.RunGrpcServer(server)
 	//launch.InitHttpServer()
 }
-func newAppImpl(reviewService service.ReviewService) pbs.HandleServerServer {
-	return &AppImpl{reviewService}
+func newAppImpl(tradeService service.TradeService) pbs.HandleServerServer {
+	return &AppImpl{tradeService}
 }
 
 func newServer(handler pbs.HandleServerServer) *grpc.Server {

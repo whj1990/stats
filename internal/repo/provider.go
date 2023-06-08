@@ -8,10 +8,10 @@ import (
 	"gorm.io/gorm"
 )
 
-var ProviderSet = wire.NewSet(trace.NewGormLogger, store.NewDB, NewReviewProjectRepo)
+var ProviderSet = wire.NewSet(trace.NewGormLogger, store.NewDB, NewOrderRepo)
 
-func NewReviewProjectRepo(db *gorm.DB) ReviewProjectRepo {
-	return &reviewProjectRepo{
-		BaseRepo: repository.BaseRepo{Db: db, Model: ReviewProjectData{}},
+func NewOrderRepo(db *gorm.DB) OrderRepo {
+	return &orderRepo{
+		BaseRepo: repository.BaseRepo{Db: db, Model: OrderData{}},
 	}
 }

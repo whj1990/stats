@@ -22,9 +22,9 @@ func initServer() (*grpc.Server, error) {
 	if err != nil {
 		return nil, err
 	}
-	reviewProjectRepo := repo.NewReviewProjectRepo(db)
-	reviewService := service.NewReviewService(reviewProjectRepo)
-	handleServerServer := newAppImpl(reviewService)
+	orderRepo := repo.NewOrderRepo(db)
+	tradeService := service.NewTradeService(orderRepo)
+	handleServerServer := newAppImpl(tradeService)
 	server := newServer(handleServerServer)
 	return server, nil
 }

@@ -12,12 +12,9 @@ import (
 )
 
 type AppImpl struct {
-	reviewService service.ReviewService
+	tradeService service.TradeService
 }
 
-func (s *AppImpl) ReviewProjectList(ctx context.Context, req *pbs.ReviewProjectListParams) (*pbs.ReviewProjectListResponse, error) {
-	return s.reviewService.ReviewProjectList(ctx, req)
-}
 func (s *AppImpl) StreamClientServer(srv pbs.HandleServer_StreamClientServerServer) error {
 	for true {
 		//从流中获取消息
@@ -33,4 +30,8 @@ func (s *AppImpl) StreamClientServer(srv pbs.HandleServer_StreamClientServerServ
 
 	}
 	return nil
+}
+
+func (s *AppImpl) TradeStats(ctx context.Context, req *pbs.TradeStatsReq) (*pbs.TradeStatsResp, error) {
+	return s.tradeService.TradeStats(ctx, req)
 }

@@ -4,46 +4,8 @@ option go_package = "/pbs";// option go_package = "path;name"; path 表示生成
 
 // 定义我们的服务（可定义多个服务,每个服务可定义多个接口）
 service HandleServer{
-    rpc ReviewProjectList (ReviewProjectListParams) returns (ReviewProjectListResponse){};
     rpc StreamClientServer (stream ParamId) returns (ParamResp){};
-
-    // 服务端流式rpc，在响应数据前添加stream
-    //rpc ListValue(SimpleRequest)returns(stream StreamResponse){};
-}
-// 定义发送请求信息
-message ReviewProjectListParams{
-    // 定义发送的参数，采用驼峰命名方式，小写加下划线，如：student_name
-    // 请求参数
-    int32  page_num  = 1;
-    int32  page_size = 2;
-    int64  id        = 3;
-    string name      = 4;
-    string mode_code = 5;
-    int32  status    = 6;
-    int32  show_status = 7;
-}
-
-// 定义响应信息
-message ReviewProjectListResponse{
-    // 定义接收的参数
-    // 参数类型 参数名 标识号(不可重复)
-    int64    total    = 1;
-    int32    page_num = 2;
-    int32    page_size = 3;
-    repeated ReviewProjectData  data = 4;
-}
-
-message ReviewProjectData{
-    int64    id               = 1;
-    string   name             = 2;
-    string   mode_code        = 3;
-    string   description      = 4;
-    int32    status           = 5;
-    int32    deleted          = 6;
-    string   created_user     = 7;
-    string   updated_user     = 8;
-    string   created_date     = 9;
-    string   updated_date     = 10;
+    rpc TradeStats (TradeStatsReq) returns (TradeStatsResp){};
 }
 
 message ParamId {
@@ -53,4 +15,20 @@ message ParamId {
 message ParamResp {
     int32 num = 1;
     string date = 2;
+}
+message TradeStatsReq {
+    string tenant_id            = 1 ;
+    int32  type                 = 2 ;
+}
+message TradeStatsResp {
+    TradeStatsData data          = 1 ;
+
+}
+message TradeStatsData {
+    double amount               = 1 ;
+    double amount_hour          = 2 ;
+    int64 count                = 3 ;
+    int64 count_hour           = 4 ;
+    double market_value         = 5 ;
+    double market_value_rate    = 6 ;
 }

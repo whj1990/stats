@@ -22,8 +22,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HandleServerClient interface {
-	ReviewProjectList(ctx context.Context, in *ReviewProjectListParams, opts ...grpc.CallOption) (*ReviewProjectListResponse, error)
 	StreamClientServer(ctx context.Context, opts ...grpc.CallOption) (HandleServer_StreamClientServerClient, error)
+	TradeStats(ctx context.Context, in *TradeStatsReq, opts ...grpc.CallOption) (*TradeStatsResp, error)
 }
 
 type handleServerClient struct {
@@ -32,15 +32,6 @@ type handleServerClient struct {
 
 func NewHandleServerClient(cc grpc.ClientConnInterface) HandleServerClient {
 	return &handleServerClient{cc}
-}
-
-func (c *handleServerClient) ReviewProjectList(ctx context.Context, in *ReviewProjectListParams, opts ...grpc.CallOption) (*ReviewProjectListResponse, error) {
-	out := new(ReviewProjectListResponse)
-	err := c.cc.Invoke(ctx, "/proto.HandleServer/ReviewProjectList", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *handleServerClient) StreamClientServer(ctx context.Context, opts ...grpc.CallOption) (HandleServer_StreamClientServerClient, error) {
@@ -77,23 +68,32 @@ func (x *handleServerStreamClientServerClient) CloseAndRecv() (*ParamResp, error
 	return m, nil
 }
 
+func (c *handleServerClient) TradeStats(ctx context.Context, in *TradeStatsReq, opts ...grpc.CallOption) (*TradeStatsResp, error) {
+	out := new(TradeStatsResp)
+	err := c.cc.Invoke(ctx, "/proto.HandleServer/TradeStats", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HandleServerServer is the server API for HandleServer service.
 // All implementations should embed UnimplementedHandleServerServer
 // for forward compatibility
 type HandleServerServer interface {
-	ReviewProjectList(context.Context, *ReviewProjectListParams) (*ReviewProjectListResponse, error)
 	StreamClientServer(HandleServer_StreamClientServerServer) error
+	TradeStats(context.Context, *TradeStatsReq) (*TradeStatsResp, error)
 }
 
 // UnimplementedHandleServerServer should be embedded to have forward compatible implementations.
 type UnimplementedHandleServerServer struct {
 }
 
-func (UnimplementedHandleServerServer) ReviewProjectList(context.Context, *ReviewProjectListParams) (*ReviewProjectListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReviewProjectList not implemented")
-}
 func (UnimplementedHandleServerServer) StreamClientServer(HandleServer_StreamClientServerServer) error {
 	return status.Errorf(codes.Unimplemented, "method StreamClientServer not implemented")
+}
+func (UnimplementedHandleServerServer) TradeStats(context.Context, *TradeStatsReq) (*TradeStatsResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TradeStats not implemented")
 }
 
 // UnsafeHandleServerServer may be embedded to opt out of forward compatibility for this service.
@@ -105,24 +105,6 @@ type UnsafeHandleServerServer interface {
 
 func RegisterHandleServerServer(s grpc.ServiceRegistrar, srv HandleServerServer) {
 	s.RegisterService(&HandleServer_ServiceDesc, srv)
-}
-
-func _HandleServer_ReviewProjectList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReviewProjectListParams)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HandleServerServer).ReviewProjectList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.HandleServer/ReviewProjectList",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HandleServerServer).ReviewProjectList(ctx, req.(*ReviewProjectListParams))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _HandleServer_StreamClientServer_Handler(srv interface{}, stream grpc.ServerStream) error {
@@ -151,6 +133,24 @@ func (x *handleServerStreamClientServerServer) Recv() (*ParamId, error) {
 	return m, nil
 }
 
+func _HandleServer_TradeStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TradeStatsReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HandleServerServer).TradeStats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.HandleServer/TradeStats",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HandleServerServer).TradeStats(ctx, req.(*TradeStatsReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // HandleServer_ServiceDesc is the grpc.ServiceDesc for HandleServer service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -159,8 +159,8 @@ var HandleServer_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*HandleServerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ReviewProjectList",
-			Handler:    _HandleServer_ReviewProjectList_Handler,
+			MethodName: "TradeStats",
+			Handler:    _HandleServer_TradeStats_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

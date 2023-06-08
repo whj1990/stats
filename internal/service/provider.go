@@ -6,8 +6,8 @@ import (
 	"github.com/google/wire"
 )
 
-var ProviderSet = wire.NewSet(NewReviewService)
+var ProviderSet = wire.NewSet(NewTradeService)
 
-func NewReviewService(reviewProjectRepo repo.ReviewProjectRepo) ReviewService {
-	return &reviewService{reviewProjectRepo}
+func NewTradeService(orderRepo repo.OrderRepo) TradeService {
+	return &tradeService{orderRepo}
 }
