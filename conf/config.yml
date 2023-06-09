@@ -12,6 +12,6 @@ naCos:
   namespace: 26f96dff-111f-485b-9b89-9131dd48c4e4
   username: nacos
   password: c$^#v3QixpK38DoH
-  group: group-mine-dev
+  group: TEST_GROUP
   cluster-name: cluster-mine-dev
-  data-id: mine-grpc
+  data-id: stats

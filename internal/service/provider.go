@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/whj1990/mine-grrpc/internal/repo"
+	"github.com/dc7ex/stats/internal/repo"
 
 	"github.com/google/wire"
 )

@@ -6,9 +6,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/whj1990/mine-grrpc/pbs"
+	"github.com/dc7ex/stats/pbs"
 
-	"github.com/whj1990/mine-grrpc/internal/service"
+	"github.com/dc7ex/stats/internal/service"
 )
 
 type AppImpl struct {

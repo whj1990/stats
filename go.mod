@@ -1,4 +1,4 @@
-module github.com/whj1990/mine-grrpc
+module github.com/dc7ex/stats
 
 go 1.20
 
