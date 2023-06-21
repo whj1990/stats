@@ -10,7 +10,7 @@ require (
 	gorm.io/gorm v1.23.4
 )
 
-replace github.com/whj1990/go-core v0.0.0-20230608031844-958ef4c36f50 => /Users/edy/wwwroot/gowork/src/mine/go-core
+//replace github.com/whj1990/go-core v0.0.0-20230608031844-958ef4c36f50 => go-core
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
