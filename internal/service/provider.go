@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/dc7ex/stats/internal/repo"
+	"github.com/whj1990/stats/internal/repo"
 
 	"github.com/google/wire"
 )

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/dc7ex/stats/internal/service"
-	"github.com/dc7ex/stats/pbs"
 	"github.com/whj1990/go-core/launch"
+	"github.com/whj1990/stats/internal/service"
+	"github.com/whj1990/stats/pbs"
 	"google.golang.org/grpc"
 )
 

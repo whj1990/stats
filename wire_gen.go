@@ -9,8 +9,8 @@ package main
 import (
 	"github.com/whj1990/go-core/store"
 	"github.com/whj1990/go-core/trace"
-	"github.com/dc7ex/stats/internal/repo"
-	"github.com/dc7ex/stats/internal/service"
+	"github.com/whj1990/stats/internal/repo"
+	"github.com/whj1990/stats/internal/service"
 	"google.golang.org/grpc"
 )
 

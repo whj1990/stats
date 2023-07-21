@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/dc7ex/stats/internal/repo"
-	"github.com/dc7ex/stats/pbs"
 	"github.com/whj1990/go-core/util"
+	"github.com/whj1990/stats/internal/repo"
+	"github.com/whj1990/stats/pbs"
 )
 
 type TradeService interface {
